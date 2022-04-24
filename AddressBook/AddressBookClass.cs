@@ -105,8 +105,28 @@ namespace AddressBook
                 }
             }
             string jsonData = JsonConvert.SerializeObject(person);
-            File.WriteAllText(@"D:\.Net\PracticeProblem\AddressBook\AddressBook\Contacts.json", jsonData);
+            File.WriteAllText(@"D:\.Net\Assignment\Day37\AddressBook\AddressBook\Contacts.json", jsonData);
         }
+
+        /// <summary>
+        /// method for removing a contact
+        /// </summary>
+        /// <param name="First_Name"></param>
+        public void Remove(string First_Name)
+        {
+            Person pers = null;
+            foreach (Person p in person)
+            {
+                if (p.First_Name == First_Name)
+                {
+                    pers = p;
+                }
+            }
+            person.Remove(pers);
+            string jsonData = JsonConvert.SerializeObject(person);
+            File.WriteAllText(@"D:\.Net\Assignment\Day37\AddressBook\AddressBook\Contacts.json", jsonData);
+        }
+
 
     }
 }
